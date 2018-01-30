@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Number guesser</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1 class="h1Bold">Number&nbsp;</h1><h1 class="h1Light">Guesser</h1>
+  </header>
+  <main>
+    <form id="guess" autocomplete="off" onsubmit="return false">
+      <input type="text" name="number" placeholder="Enter your guess" id="userGuess">
+    </form>
+    <button type="submit" form="guess" value="Submit" id="submit-button">Guess</button>
+    <button form="guess" value="Clear" id="clear-button">Clear</button>
+    <p id="last-guess">Your last guess was</p>
+    <h2>N/A</h2>
+    <p form="guess" id="indicator">Because you haven't yet guessed.</p>
+    <button form="guess" id="reset-button">Reset</button>
+  </main>
+  <script rel="stylesheet" type="text/javascript" src="script.js"></script>
+</body>
+</html>

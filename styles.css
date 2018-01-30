@@ -1,0 +1,122 @@
+/*Text: open sans -- bold 700 / light 300*/
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+header {
+  text-align: center;
+  height: 134px;
+  background-color: #404041;
+}
+
+h1{
+  font-size: 76px;
+  display: inline-block;
+  margin: 14px 0 0 0;
+}
+
+.h1Bold {
+  font-weight: bold;
+  color: #ED458B;
+}
+
+.h1Light {
+  font-weight: lighter;
+  color: #E6E7E8;
+}
+
+body {
+  height: 1000px;
+}
+
+main {
+  width: 560px;
+  margin: auto;
+  margin-top: 62px;
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  height: 62px;
+  box-sizing: border-box;
+  font-size: 36px;
+  vertical-align: middle;
+  font-weight: lighter;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border: #D0D2D3 solid 1px;
+}
+
+input::placeholder {
+  color: #D0D2D3;
+}
+
+button {
+  color: #FFF;
+  background-color: #929497;
+  font-weight: lighter;
+  border: none;
+}
+
+button:hover {
+  background-color: #EB008B;
+}
+
+button:disabled {
+  background-color: #D0D2D3;
+}
+
+#submit-button {
+  border-radius: 25px;
+  margin-top: 50px;
+  width: 250px;
+  height: 55px;
+  float: left;
+  font-size: 28px;
+}
+
+#clear-button {
+  border-radius: 25px;
+  margin-top: 50px;
+  width: 250px;
+  height: 55px;
+  float: right;
+  font-size: 28px;
+}
+
+p {
+  width: 560px;
+  display: inline-block;
+  color: #404041;
+  font-size: 36px;
+  font-weight: lighter;
+}
+
+#last-guess {
+  margin-top: 60px;
+  margin-bottom: 50px;
+}
+
+#indicator{
+  margin-top: 40px;
+}
+
+h2 {
+  color: #EB008B;
+  font-size: 250px;
+  font-weight: lighter;
+  margin-top: 0px;
+  margin-bottom: 25px;
+  line-height: 150px;
+}
+
+#reset-button {
+  border-radius: 25px;
+  margin-top: 20px;
+  width: 560px;
+  height: 40px;
+  font-size: 28px;
+  padding-top: 0px;
+}
