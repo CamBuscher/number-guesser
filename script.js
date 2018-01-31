@@ -1,52 +1,63 @@
-// My number generator
+// all my variables
+var resetButton = document.querySelector('#reset-button');
+var clearButton = document.querySelector('#clear-button');
+var submitButton = document.querySelector('#submit-button');
+var inputField = document.querySelector('#userGuess');
+var indicatorText = document.querySelector('#indicator');
+var lastGuess = document.querySelector('h2');
+// My number generator -- runs as page loads
 var number = Math.floor(Math.random() * 100 + 1);
 console.log(number);
 
 // this sets the reset and clear button as disabled by default
-document.querySelector('#reset-button').disabled=true;
-document.querySelector('#clear-button').disabled=true;
+resetButton.disabled=true;
+clearButton.disabled=true;
 
 //the submit button -- the bulk of my program
-document.querySelector('#submit-button').addEventListener('click', function() {
-  var input = parseInt(document.querySelector('#userGuess').value);
-  document.querySelector('h2').innerText = input;
+submitButton.addEventListener('click', function() {
+  var input = parseInt(inputField.value);
+  lastGuess.innerText = input;
   if (input === number) {
-    document.querySelector('#indicator').innerText = "BOOM!";
-    document.querySelector('#reset-button').innerText = 'Pssssst. Hit me to play again.';
-    document.querySelector('#reset-button').disabled=false;
-  }
-  else if (input < 0 || input > 100) {
+    indicatorText.innerText = "BOOM!";
+    resetButton.innerText = 'Pssssst. Hit me to play again.';
+    resetButton.disabled=false;
+  } else if (input < 0 || input > 100) {
     alert("Please enter a number between 1 and 100 :)");
-  }
-  else if (input > number) {
-    document.querySelector('#indicator').innerText = "That guess is too high, try again.";
-  }
-  else if (input < number) {
-    document.querySelector('#indicator').innerText = "That guess is too low, try again.";
-  }
-  else if (input = "NaN") {
+    indicatorText.innerText = "Guess within the range."
+  } else if (input > number) {
+    indicatorText.innerText = "That guess is too high, try again.";
+  } else if (input < number) {
+    indicatorText.innerText = "That guess is too low, try again.";
+  } else if (input = "NaN") {
     alert("Please enter an integer :)");
-    document.querySelector('h2').innerText = "N/A"
+    lastGuess.innerText = "N/A"
   }
 })
 
 // clear button
-document.querySelector('#clear-button').addEventListener('click', function() {
-  document.querySelector('#userGuess').value ='';
-  document.querySelector('#clear-button').disabled=true;
+clearButton.addEventListener('click', function() {
+  inputField.value ='';
+  clearButton.disabled=true;
 })
 
-document.querySelector('#userGuess').addEventListener('keydown', function() {
-  document.querySelector('#clear-button').disabled=false;
+inputField.addEventListener('keydown', function() {
+  clearButton.disabled=false;
 })
 
 // reset button
-document.querySelector('#reset-button').addEventListener('click', function() {
-  document.querySelector('#indicator').innerText = 'Guess again!';
-  document.querySelector('h2').innerText = 'N/A';
+resetButton.addEventListener('click', function() {
+  indicatorText.innerText = 'Guess again!';
   number = Math.floor(Math.random() * 100 + 1);
   console.log(number);
-  document.querySelector('#userGuess').value ='';
-  document.querySelector('#reset-button').disabled=true;
-  document.querySelector('#clear-button').disabled=true;
+  inputField.value ='';
+  resetButton.innerText = 'Reset';
+  resetButton.disabled=true;
+  clearButton.disabled=true;
 })
+
+//work with this to get a new, better random number generator
+// function getRandomIntInclusive(min, max) {
+//   min = Math.ceil(min);
+//   max = Math.floor(max);
+//   number = Math.floor(Math.random() * (max - min + 1)) + min;
+// }
