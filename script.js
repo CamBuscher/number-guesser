@@ -6,8 +6,21 @@ var inputField = document.querySelector('#userGuess');
 var indicatorText = document.querySelector('#indicator');
 var lastGuess = document.querySelector('h2');
 // My number generator -- runs as page loads
-var number = Math.floor(Math.random() * 100 + 1);
-console.log(number);
+// var number = Math.floor(Math.random() * 100 + 1);
+
+var minimum = 1;
+var maximum = 100;
+
+function randomNumber(min, max){
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  number = Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+randomNumber(minimum, maximum);
+console.log("min = " + minimum);
+console.log("max = " + maximum);
+console.log("correct answer is " + number);
 
 // this sets the reset and clear button as disabled by default
 resetButton.disabled=true;
@@ -21,8 +34,10 @@ submitButton.addEventListener('click', function() {
     indicatorText.innerText = "BOOM!";
     resetButton.innerText = 'Pssssst. Hit me to play again.';
     resetButton.disabled=false;
-  } else if (input < 0 || input > 100) {
-    alert("Please enter a number between 1 and 100 :)");
+    minimum = minimum - 10;
+    maximum = maximum + 10;
+  } else if (input < minimum || input > maximum) {
+    alert("Please enter a number between " + minimum + " and " + maximum + " :)");
     indicatorText.innerText = "Guess within the range."
   } else if (input > number) {
     indicatorText.innerText = "That guess is too high, try again.";
@@ -47,8 +62,10 @@ inputField.addEventListener('keydown', function() {
 // reset button
 resetButton.addEventListener('click', function() {
   indicatorText.innerText = 'Guess again!';
-  number = Math.floor(Math.random() * 100 + 1);
-  console.log(number);
+  randomNumber(minimum, maximum); 
+  console.log("min = " + minimum);
+  console.log("max = " + maximum);
+  console.log("correct answer is " + number);
   inputField.value ='';
   resetButton.innerText = 'Reset';
   resetButton.disabled=true;
