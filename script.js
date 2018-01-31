@@ -9,9 +9,12 @@ var rangeMinimum = document.querySelector('#user-minimum');
 var rangeMaximum = document.querySelector('#user-maximum');
 var minInput = document.querySelector('#min-input');
 var maxInput = document.querySelector('#max-input');
-
 var minimum = 1;
 var maximum = 100;
+
+resetButton.disabled=true;
+clearButton.disabled=true;
+submitButton.disabled=true;
 
 function randomNumber(min, max){
   min = Math.ceil(min);
@@ -19,23 +22,28 @@ function randomNumber(min, max){
   number = Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function invalidRange() {
+  if (minimum >= maximum) {
+      submitButton.disabled=true;
+  } else if (minimum < maximum) {
+      submitButton.disabled=false;
+  }}
+
 randomNumber(minimum, maximum);
 console.log("correct answer is " + number);
-
-// this sets the reset and clear button as disabled by default
-resetButton.disabled=true;
-clearButton.disabled=true;
 
 minInput.addEventListener('keyup', function() {
   minimum = parseInt(minInput.value);
   rangeMinimum.innerText = "Min = " + minimum;
   randomNumber(minimum, maximum);
+  invalidRange();
 }) 
 
 maxInput.addEventListener('keyup', function() {
   maximum = parseInt(maxInput.value);
   rangeMaximum.innerText = "Max = " + maximum;
   randomNumber(minimum, maximum);
+  invalidRange();
 })
 
 //the submit button -- the bulk of my program
@@ -70,6 +78,7 @@ clearButton.addEventListener('click', function() {
 
 inputField.addEventListener('keydown', function() {
   clearButton.disabled=false;
+  submitButton.disabled=false;
 })
 
 // reset button
@@ -85,7 +94,7 @@ resetButton.addEventListener('click', function() {
   resetButton.innerText = 'Reset';
   resetButton.disabled=true;
   clearButton.disabled=true;
-  submitButton.disabled=false;
+  submitButton.disabled=true;
   minInput.value = '';
   maxInput.value = '';
   inputField.focus();
