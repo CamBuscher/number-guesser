@@ -5,8 +5,10 @@ var submitButton = document.querySelector('#submit-button');
 var inputField = document.querySelector('#userGuess');
 var indicatorText = document.querySelector('#indicator');
 var lastGuess = document.querySelector('h2');
-// My number generator -- runs as page loads
-// var number = Math.floor(Math.random() * 100 + 1);
+var rangeMinimum = document.querySelector('#user-minimum');
+var rangeMaximum = document.querySelector('#user-maximum');
+var minInput = document.querySelector('#min-input');
+var maxInput = document.querySelector('#max-input');
 
 var minimum = 1;
 var maximum = 100;
@@ -25,6 +27,18 @@ console.log("correct answer is " + number);
 // this sets the reset and clear button as disabled by default
 resetButton.disabled=true;
 clearButton.disabled=true;
+
+minInput.addEventListener('keyup', function() {
+  minimum = parseInt(minInput.value);
+  rangeMinimum.innerText = "Min = " + minimum;
+  randomNumber(minimum, maximum);
+}) 
+
+maxInput.addEventListener('keyup', function() {
+  maximum = parseInt(maxInput.value);
+  rangeMaximum.innerText = "Max = " + maximum;
+  randomNumber(minimum, maximum);
+})
 
 //the submit button -- the bulk of my program
 submitButton.addEventListener('click', function() {
@@ -66,10 +80,14 @@ resetButton.addEventListener('click', function() {
   console.log("min = " + minimum);
   console.log("max = " + maximum);
   console.log("correct answer is " + number);
+  rangeMinimum.innerText = "Min = " + minimum;
+  rangeMaximum.innerText = "Max = " + maximum;
   inputField.value ='';
   resetButton.innerText = 'Reset';
   resetButton.disabled=true;
   clearButton.disabled=true;
+  minInput.value = '';
+  maxInput.value = '';
 })
 
 //work with this to get a new, better random number generator
