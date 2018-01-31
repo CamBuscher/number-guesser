@@ -85,6 +85,8 @@ resetButton.addEventListener('click', function() {
   resetButton.innerText = 'Reset';
   resetButton.disabled=true;
   clearButton.disabled=true;
+  submitButton.disabled=false;
   minInput.value = '';
   maxInput.value = '';
+  inputField.focus();
 })
