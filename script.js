@@ -20,8 +20,6 @@ function randomNumber(min, max){
 }
 
 randomNumber(minimum, maximum);
-console.log("min = " + minimum);
-console.log("max = " + maximum);
 console.log("correct answer is " + number);
 
 // this sets the reset and clear button as disabled by default
@@ -50,6 +48,7 @@ submitButton.addEventListener('click', function() {
     resetButton.disabled=false;
     minimum = minimum - 10;
     maximum = maximum + 10;
+    submitButton.disabled=true;
   } else if (input < minimum || input > maximum) {
     alert("Please enter a number between " + minimum + " and " + maximum + " :)");
     indicatorText.innerText = "Guess within the range."
@@ -89,10 +88,3 @@ resetButton.addEventListener('click', function() {
   minInput.value = '';
   maxInput.value = '';
 })
-
-//work with this to get a new, better random number generator
-// function getRandomIntInclusive(min, max) {
-//   min = Math.ceil(min);
-//   max = Math.floor(max);
-//   number = Math.floor(Math.random() * (max - min + 1)) + min;
-// }
