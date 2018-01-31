@@ -3,15 +3,16 @@
 }
 
 header {
+  margin-top: -8px;
   text-align: center;
-  height: 134px;
+  height: 110px;
   background-color: #404041;
 }
 
 h1{
   font-size: 76px;
   display: inline-block;
-  margin: 14px 0 0 0;
+  margin: 1px 0 0 0;
 }
 
 .h1-bold {
@@ -25,13 +26,13 @@ h1{
 }
 
 body {
-  height: 1000px;
+  height: 750px;
 }
 
 main {
   width: 560px;
   margin: auto;
-  margin-top: 62px;
+  margin-top: 25px;
   text-align: center;
 }
 
@@ -102,18 +103,18 @@ button:disabled {
 
 #submit-button {
   border-radius: 25px;
-  margin-top: 50px;
+  margin-top: 30px;
   width: 250px;
-  height: 55px;
+  height: 40px;
   float: left;
   font-size: 28px;
 }
 
 #clear-button {
   border-radius: 25px;
-  margin-top: 50px;
+  margin-top: 30px;
   width: 250px;
-  height: 55px;
+  height: 40px;
   float: right;
   font-size: 28px;
 }
@@ -127,26 +128,26 @@ p {
 }
 
 #last-guess {
-  margin-top: 60px;
-  margin-bottom: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 #indicator{
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 h2 {
   color: #EB008B;
-  font-size: 250px;
+  font-size: 200px;
   font-weight: lighter;
   margin-top: 0px;
-  margin-bottom: 25px;
+  margin-bottom: 0px;
   line-height: 150px;
 }
 
 #reset-button {
   border-radius: 25px;
-  margin-top: 20px;
+  margin-top: 0px;
   width: 560px;
   height: 40px;
   font-size: 28px;
