@@ -1,5 +1,3 @@
-/*Text: open sans -- bold 700 / light 300*/
-
 * {
   font-family: 'Open Sans', sans-serif;
 }
@@ -16,12 +14,12 @@ h1{
   margin: 14px 0 0 0;
 }
 
-.h1Bold {
+.h1-bold {
   font-weight: bold;
   color: #ED458B;
 }
 
-.h1Light {
+.h1-light {
   font-weight: lighter;
   color: #E6E7E8;
 }
@@ -38,11 +36,11 @@ main {
 }
 
 input {
-  width: 100%;
-  height: 62px;
+  float: left;
+  width: 420px;
+  height: 85px;
   box-sizing: border-box;
   font-size: 36px;
-  vertical-align: middle;
   font-weight: lighter;
   padding-bottom: 10px;
   padding-left: 10px;
@@ -51,6 +49,33 @@ input {
 
 input::placeholder {
   color: #D0D2D3;
+}
+
+input.small-input {
+  width: 90px;
+  height: 25px;
+  margin-left: 10px;
+  font-size: 12px;
+  padding-top: 10px;
+}
+
+span {
+  width: 130px;
+  height: 85px;
+}
+
+h6 {
+  color: #EB008B;
+  margin-bottom: 5px;
+  font-size: 16px;
+
+}
+
+.range-indicator {
+  display: inline-block;
+  width: 30px;
+  font-size: 12px;
+  margin-top: 0px;
 }
 
 button {
