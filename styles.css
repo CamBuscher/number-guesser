@@ -53,7 +53,7 @@ input::placeholder {
 }
 
 input.small-input {
-  width: 100px;
+  width: 90px;
   height: 25px;
   margin-left: 10px;
   font-size: 12px;
@@ -79,11 +79,20 @@ h6 {
 
 .range-indicator {
   display: inline-block;
-  width: 70px;
+  width: 80px;
   font-size: 12px;
   margin-top: 0px;
   font-weight: bold;
   color: #404041;
+}
+
+.highlight {
+  background-color: #EB008B;
+  color: #FFFFFF;
+  -webkit-transition: background-color 2.5s;
+  -moz-transition: background-color 2.5s;
+  -o-transition: background-color 2.5s;
+  transition: background-color 2.5s;
 }
 
 button {

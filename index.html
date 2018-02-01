@@ -6,17 +6,17 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <header>
+  <header role="banner">
     <h1 class="h1-bold">Number&nbsp;</h1><h1 class="h1-light">Guesser</h1>
   </header>
-  <main>
-    <form id="guess" autocomplete="off" onsubmit="return false">
-      <input type="text" name="number" placeholder="Enter your guess" id="userGuess">
+  <main role="main">
+    <form id="guess" autocomplete="off" onsubmit="return false" role="form">
+      <input type="number" name="number" placeholder="Enter your guess" id="user-guess">
     </form>
     <span>
       <h6>Random number range</h6>
       <input type="number" class="small-input" placeholder="Update min" id="min-input">
-      <p class="range-indicator" id="user-minimum"> Min = 1 </p>
+      <p class="range-indicator" id="user-minimum"> Min = 0 </p>
       <input type="number" class="small-input" placeholder="Update max" id="max-input">
       <p class="range-indicator" id="user-maximum"> Max = 100 </p>
     </span>

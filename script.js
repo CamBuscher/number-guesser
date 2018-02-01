@@ -2,14 +2,14 @@
 var resetButton = document.querySelector('#reset-button');
 var clearButton = document.querySelector('#clear-button');
 var submitButton = document.querySelector('#submit-button');
-var inputField = document.querySelector('#userGuess');
+var inputField = document.querySelector('#user-guess');
 var indicatorText = document.querySelector('#indicator');
 var lastGuess = document.querySelector('h2');
 var rangeMinimum = document.querySelector('#user-minimum');
 var rangeMaximum = document.querySelector('#user-maximum');
 var minInput = document.querySelector('#min-input');
 var maxInput = document.querySelector('#max-input');
-var minimum = 1;
+var minimum = 0;
 var maximum = 100;
 
 resetButton.disabled=true;
@@ -24,15 +24,13 @@ function randomNumber(min, max){
 
 function invalidRange() {
   if (minimum >= maximum) {
-      submitButton.disabled=true;
-  } else if (minimum < maximum) {
-      submitButton.disabled=false;
+    submitButton.disabled=true;
   }}
 
 randomNumber(minimum, maximum);
 console.log("correct answer is " + number);
 
-minInput.addEventListener('keyup', function() {
+minInput.addEventListener('input', function() {
   minimum = parseInt(minInput.value);
   rangeMinimum.innerText = "Min = " + minimum;
   randomNumber(minimum, maximum);
@@ -40,7 +38,7 @@ minInput.addEventListener('keyup', function() {
   console.log("correct answer is " + number);
 }) 
 
-maxInput.addEventListener('keyup', function() {
+maxInput.addEventListener('input', function() {
   maximum = parseInt(maxInput.value);
   rangeMaximum.innerText = "Max = " + maximum;
   randomNumber(minimum, maximum);
@@ -48,7 +46,6 @@ maxInput.addEventListener('keyup', function() {
   console.log("correct answer is " + number);
 })
 
-//the submit button -- the bulk of my program
 submitButton.addEventListener('click', function() {
   var input = parseInt(inputField.value);
   lastGuess.innerText = input;
@@ -72,24 +69,28 @@ submitButton.addEventListener('click', function() {
   }
 })
 
-// clear button
 clearButton.addEventListener('click', function() {
   inputField.value ='';
   clearButton.disabled=true;
+  submitButton.disabled=true;
 })
 
 inputField.addEventListener('keydown', function() {
   clearButton.disabled=false;
   submitButton.disabled=false;
+  if (minimum >= maximum) {
+    submitButton.disabled=true; 
+  }
 })
 
-// reset button
 resetButton.addEventListener('click', function() {
   indicatorText.innerText = 'Guess again!';
   randomNumber(minimum, maximum); 
   console.log("correct answer is " + number);
   rangeMinimum.innerText = "Min = " + minimum;
   rangeMaximum.innerText = "Max = " + maximum;
+  rangeMinimum.classList.add('highlight');
+  rangeMaximum.classList.add('highlight');
   inputField.value ='';
   resetButton.innerText = 'Reset';
   resetButton.disabled=true;
