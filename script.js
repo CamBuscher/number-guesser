@@ -37,6 +37,7 @@ minInput.addEventListener('keyup', function() {
   rangeMinimum.innerText = "Min = " + minimum;
   randomNumber(minimum, maximum);
   invalidRange();
+  console.log("correct answer is " + number);
 }) 
 
 maxInput.addEventListener('keyup', function() {
@@ -44,6 +45,7 @@ maxInput.addEventListener('keyup', function() {
   rangeMaximum.innerText = "Max = " + maximum;
   randomNumber(minimum, maximum);
   invalidRange();
+  console.log("correct answer is " + number);
 })
 
 //the submit button -- the bulk of my program
@@ -85,8 +87,6 @@ inputField.addEventListener('keydown', function() {
 resetButton.addEventListener('click', function() {
   indicatorText.innerText = 'Guess again!';
   randomNumber(minimum, maximum); 
-  console.log("min = " + minimum);
-  console.log("max = " + maximum);
   console.log("correct answer is " + number);
   rangeMinimum.innerText = "Min = " + minimum;
   rangeMaximum.innerText = "Max = " + maximum;
